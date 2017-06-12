@@ -1,0 +1,35 @@
+<ion-view view-title="">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-hide="!COLLEGE_RESULTS" ng-click="clearSearch()">Clear</button>
+    </ion-nav-buttons>
+    <ion-content class="padding nothidden">
+        <div class="list card" ng-hide="COLLEGE_RESULTS">
+            <div class="item item-avatar">
+                <h2 style="font-family: 'verdand', sans-seriff; font-size: 26px">Not Sure Where to Go to School? Don't worry, we've got you covered.</h2>
+            </div>
+            <div class="item item-body">
+                <img src="https://static.pexels.com/photos/356079/pexels-photo-356079.jpeg" alt="?" height="90%" width="80%">
+            </div>
+        </div>
+        <ion-list class="hidden" ng-hide="!COLLEGE_RESULTS">
+            <a class="item hidden item-thumbnail-left" ng-repeat="item in COLLEGE_RESULTS"  ng-href="https://{{item.url}}" onclick="window.open(this.href, '_blank', 'location=yes'); return false;">
+                
+                <h1 style="font-size: 22px">Educational Institution: {{item.name}}</h2>
+                <br>
+                <h2>Select here to load the school website<h2>
+                <br>
+                <hr>
+                <h2>Accreditor: {{item.accreditor}}</h2>
+                <br>
+                <h2>State: {{item.state}}</h2>
+                <br>
+                <h2>City: {{item.city}}</h2>
+                <br>
+                <h2 style="color:red;">Full Time Student Cost:  ${{item.studentCost}}</h2>
+                <br>
+                <h2 style="color:red;">Revenue Per Full Time Student:  ${{item.revenue}}</h2>
+                
+            </a>
+        </ion-list>
+    </ion-content>
+</ion-view>
